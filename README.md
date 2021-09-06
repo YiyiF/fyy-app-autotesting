@@ -23,7 +23,7 @@ Automation Testing of Mobile App
 
   ![avatar](resource/EventsLog.png)
 
-5.  结果
+4.  结果
 - /report/now_event.txt 为已检测到的事件
 
 - /report/lost_event.txt 为缺少的事件
