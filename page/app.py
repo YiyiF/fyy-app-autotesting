@@ -12,8 +12,8 @@ from page.main_page import MainPage
 
 
 class App:
-
     driver: WebDriver
+
     @classmethod
     def start(cls):
         caps = {}
@@ -30,6 +30,8 @@ class App:
         caps["appName"] = "Filto"
         caps["bundleId"] = "com.pinsotech.filto"
 
+        caps["printPageSourceOnFindFailure"] = True  # 找元素失败时打印pageSource
+
         cls.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
         cls.driver.implicitly_wait(5)
 
@@ -38,4 +40,3 @@ class App:
     @classmethod
     def quit(cls):
         cls.driver.quit()
-

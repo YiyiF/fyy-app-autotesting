@@ -5,21 +5,22 @@
 # @Site    : ${SITE}
 # @File    : main_page.py
 # @Software: PyCharm
-from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 
 from page.album_page import AlbumPage
+from page.common_page import CommonPage
 
 
-class MainPage(object):
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
+class MainPage(CommonPage):
+
+    _plus_btn_locator = (By.ID, "filto other 300 07")   # 私有类级别变量
+
+    def new_edit_session_from_plus(self):
+        self.find_element_and_click(self._plus_btn_locator)
+        return AlbumPage(self.driver)
 
     # def content_b_use(self, content: Optional[str] = None):
     #     self.driver.find_element_by_id("use").click()
     #     if content:
     #         self.content = content
     #     return AlbumPage(self.driver, self.content)
-
-    def new_edit_session_from_plus(self):
-        self.driver.find_element_by_name("filto other 300 07").click()
-        return AlbumPage(self.driver)

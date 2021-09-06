@@ -6,14 +6,11 @@
 # @File    : album_page.py
 # @Software: PyCharm
 
-from selenium.webdriver.remote.webdriver import WebDriver
-
+from page.common_page import CommonPage
 from page.edit_page import PhotoEditPage
 
 
-class AlbumPage(object):
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
+class AlbumPage(CommonPage):
 
     def select_photo(self):
         self.driver.find_element_by_xpath("//*[XCUIElementTypeCell[1]/XCUIElementTypeOther[2]]")

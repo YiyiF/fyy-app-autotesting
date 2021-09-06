@@ -5,13 +5,12 @@
 # @Site    : ${SITE}
 # @File    : edit_page.py
 # @Software: PyCharm
-from selenium.webdriver.remote.webdriver import WebDriver
 from appium.webdriver.common.touch_action import TouchAction
 
+from page.common_page import CommonPage
 
-class PhotoEditPage(object):
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
+
+class PhotoEditPage(CommonPage):
 
     def use_filter(self, pkg_name: str, index: str):
         # 展开pkg_name包
