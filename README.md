@@ -17,7 +17,8 @@ Automation Testing of Mobile App
   ```
   ```python
   # check_events.py
-  ST.all_events = ['filto_launch', ]  #填写需要验证是否存在的全部事件
+  # ST.all_events = ['filto_launch', ]  #填写需要验证是否存在的全部事件
+  ST.all_events = all_events.get_all_events("resource/综合查询_2021-09-06 10_54.xlsx")  # 更新为使用xlsx文件读取全部事件
   ```
 3.  操作业务，触发事件，shell中打印关键日志
 
