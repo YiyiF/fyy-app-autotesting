@@ -21,7 +21,7 @@ Automation Testing of Mobile App
   ```
 3.  操作业务，触发事件，shell中打印关键日志
 
-  ![avatar]()
+  ![avatar](resource/EventsLog.png)
 
 5.  结果
 - /report/now_event.txt 为已检测到的事件
