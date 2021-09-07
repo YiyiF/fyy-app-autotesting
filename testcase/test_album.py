@@ -16,10 +16,10 @@ class TestAlbum:
 
     def setup(self):
         self.home_page = App.start()
-        self.home_page.new_edit_session_from_plus()
+        self.album_page = self.home_page.new_edit_session_from_plus()
 
     def test_open_album_from_plus(self):
-        assert "No filter is using now.", AlbumPage.is_album_shown()
+        assert "Album page is not shown.", self.album_page.is_album_shown()
 
     def teardown(self):
         # sleep(5)

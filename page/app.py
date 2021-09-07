@@ -5,6 +5,8 @@
 # @Site    : 
 # @File    : app.py
 # @Software: PyCharm
+import os
+
 from appium import webdriver
 from selenium.webdriver.remote.webdriver import WebDriver
 
@@ -13,6 +15,15 @@ from page.main_page import MainPage
 
 class App:
     driver: WebDriver
+
+    @staticmethod
+    def connect_device():
+        info_cmd = "tidevice list"
+        device_info = os.popen(info_cmd, 'r').readlines()[0]
+
+        device_info = device_info.strip('\n')
+        real_device_udid, real_device_name = device_info.split(" ", 1)
+        return real_device_udid, real_device_name
 
     @classmethod
     def start(cls):
@@ -23,8 +34,10 @@ class App:
         caps["xcodeOrgId"] = "9N556RRA53"
         caps["xcodeSigningId"] = "iPhone Developer"
 
-        caps["deviceName"] = "11的iPhone"
-        caps["udid"] = "00008101-000565A43C82001E"
+        real_device_udid, real_device_name = cls.connect_device()
+        caps["deviceName"] = real_device_name
+        caps["udid"] = real_device_udid
+
         # caps[
         #     "app"] = "/Users/yiyi/Library/Developer/Xcode/DerivedData/UICatalog-ezitcgxttljbnudcmmaglmooqhtj/Build/Products/Debug-iphoneos/UICatalog.app"
         caps["appName"] = "Filto"

@@ -12,10 +12,14 @@ from page.common_page import CommonPage
 
 
 class MainPage(CommonPage):
-
-    _plus_btn_locator = (By.ID, "filto other 300 07")   # 私有类级别变量
+    _plus_btn_locator = (By.ID, "filto other 300 07")  # 私有类级别变量
+    _drop_history_window = (By.ID, "Drop")  # 闪退保护弹窗
 
     def new_edit_session_from_plus(self):
+        try:
+            self.find_element_and_click(self._drop_history_window)
+        except:
+            pass
         self.find_element_and_click(self._plus_btn_locator)
         return AlbumPage(self.driver)
 

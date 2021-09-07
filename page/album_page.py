@@ -5,6 +5,7 @@
 # @Site    : ${SITE}
 # @File    : album_page.py
 # @Software: PyCharm
+from selenium.webdriver.common.by import By
 
 from page.common_page import CommonPage
 from page.edit_page import PhotoEditPage
@@ -13,8 +14,9 @@ from page.edit_page import PhotoEditPage
 class AlbumPage(CommonPage):
 
     def select_photo(self):
-        self.driver.find_element_by_xpath("//*[XCUIElementTypeCell[1]/XCUIElementTypeOther[2]]")
+        self.driver.find_element_by_xpath("//*[XCUIElementTypeCollectionView/XCUIElementTypeCell["
+                                          "1]/XCUIElementTypeOther[2]]").click()
         return PhotoEditPage(self.driver)
 
     def is_album_shown(self):
-        return self.driver.find_element_by_id("MEDIA").get_attribute("visible")
+        return self.find_element(By.ID, "MEDIA").get_attribute("visible")
