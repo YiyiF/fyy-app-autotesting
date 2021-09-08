@@ -9,7 +9,7 @@
 # cmd：mitmdump -p 8889 -s fyy-app-autotesting/catchevents/check_events.py
 
 # 埋点上传url
-from catchevents import all_events
+import all_events
 from tb_events import GetData
 from settings import Settings as ST
 

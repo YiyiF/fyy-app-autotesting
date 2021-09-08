@@ -12,7 +12,6 @@ import urllib
 
 import mitmproxy
 from mitmproxy import http, ctx
-import emoji as emoji
 
 from settings import Settings as ST
 
