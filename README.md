@@ -6,12 +6,7 @@ Automation Testing of Mobile App
 
 ## 埋点事件验证
 ### 使用方法
-1.  连接代理
-
-- 手机代理网络到：ip:你的电脑ip, 端口:8889
-- 下载证书：在手机浏览器中打开网址 mitm.it，选择对应的证书下载安装
-
-2.  cmd执行
+1.  cmd执行
   ```zsh
   mitmdump -p 8889 -s fyy-app-autotesting/catchevents/check_events.py
   ```
@@ -20,6 +15,12 @@ Automation Testing of Mobile App
   # ST.all_events = ['filto_launch', ]  #填写需要验证是否存在的全部事件
   ST.all_events = all_events.get_all_events("resource/综合查询_2021-09-06 10_54.xlsx")  # 更新为使用xlsx文件读取全部事件
   ```
+2.  连接代理
+
+- 手机代理网络到：ip:你的电脑ip, 端口:8889
+- 下载证书：在手机浏览器中打开网址 mitm.it，选择对应的证书下载安装
+
+
 3.  操作业务，触发事件，shell中打印关键日志
 
   ![avatar](resource/EventsLog.png)
